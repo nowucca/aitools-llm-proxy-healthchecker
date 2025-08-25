@@ -94,7 +94,7 @@ class HealthChecker:
             }
             
             payload = {
-                "model": "llama-3.1-8b-instruct",
+                "model": "openai--gpt-oss-120b",
                 "messages": [
                     {"role": "user", "content": "Say 'Health check successful' and nothing else."}
                 ],
