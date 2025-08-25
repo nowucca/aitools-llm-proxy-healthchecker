@@ -14,12 +14,6 @@ A standalone health check tool for testing all three providers (OpenAI, Anthropi
    ANTHROPIC_API_KEY=your_actual_anthropic_api_key
    ```
 
-2. **Ensure Proxy Server is Running**: The health checker connects to the proxy server at `http://aitools.cs.vt.edu:7860` by default. For local testing, you can change `PROXY_BASE_URL` in the `.env` file to `http://localhost:7860` and run your local server:
-   ```bash
-   cd ..
-   ./start.sh
-   ```
-
 ## Usage
 
 ### Basic Usage
