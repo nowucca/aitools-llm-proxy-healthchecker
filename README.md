@@ -2,9 +2,9 @@
 
 A standalone health check tool for testing all three providers (OpenAI, Anthropic, Opensource) with student authentication and token management capabilities.
 
-## Setup
+## Setup using Your Own Credentials (Optional)
 
-1. **Configure API Keys**: Edit the `.env` file in this directory with your API keys:
+1. **Configure API Keys if you want to use your own credentials**: Edit the `.env` file in this directory with your API keys:
    ```bash
    # OpenAI Configuration
    OPENAI_API_KEY=your_actual_openai_api_key
@@ -13,8 +13,13 @@ A standalone health check tool for testing all three providers (OpenAI, Anthropi
    # Anthropic Configuration  
    ANTHROPIC_API_KEY=your_actual_anthropic_api_key
    ```
+   (Note: You can skip this step if you are just using the class-provided opensource LLM.)
+
+2. **Install Libraries**: Run `uv sync` to install necessary libraries (creates a .venv virtual environment for them).
+
 
 ## Usage
+
 
 ### Basic Usage
 
@@ -22,33 +27,33 @@ A standalone health check tool for testing all three providers (OpenAI, Anthropi
 
 ```bash
 # Test opensource provider (default - free for students)
-python health_checker.py --username alice --pin 1234
+uv run python health_checker.py --username alice --pin 1234
 
 # Test with verbose JSON output
-python health_checker.py --username alice --pin 1234 -v
+uv run python health_checker.py --username alice --pin 1234 -v
 
 # Test specific providers (requires API keys for openai/anthropic)
-python health_checker.py --username alice --pin 1234 --provider opensource
-python health_checker.py --username alice --pin 1234 --provider openai
-python health_checker.py --username alice --pin 1234 --provider anthropic
+uv run python health_checker.py --username alice --pin 1234 --provider opensource
+uv run python health_checker.py --username alice --pin 1234 --provider openai
+uv run python health_checker.py --username alice --pin 1234 --provider anthropic
 
 # If DEFAULT_USERNAME and DEFAULT_PIN are set in .env file:
-python health_checker.py
-python health_checker.py -v
+uv run python health_checker.py
+uv run python health_checker.py -v
 ```
 
 ### Authentication Options
 
 ```bash
 # Show JWT token after registration
-python health_checker.py --username alice --pin 1234 --show-token
+uv run python health_checker.py --username alice --pin 1234 --show-token
 
 # Only register and show token (skip health checks)
-python health_checker.py --username alice --pin 1234 --token-only
+uv run python health_checker.py --username alice --pin 1234 --token-only
 
 # Use credentials from .env file (if DEFAULT_USERNAME and DEFAULT_PIN are set)
-python health_checker.py --show-token
-python health_checker.py --token-only
+uv run python health_checker.py --show-token
+uv run python health_checker.py --token-only
 ```
 
 ### Example Output
@@ -154,20 +159,20 @@ This tool is designed for educational environments where:
 
 ```bash
 # Quick test of opensource provider (requires credentials)
-python health_checker.py --username alice --pin 1234
+uv run python health_checker.py --username alice --pin 1234
 
 # Detailed testing with token display
-python health_checker.py --username alice --pin 1234 -v --show-token
+uv run python health_checker.py --username alice --pin 1234 -v --show-token
 
 # Test only OpenAI with custom credentials
-python health_checker.py --provider openai --username student1 --pin 9876
+uv run python health_checker.py --provider openai --username student1 --pin 9876
 
 # Get token for student use
-python health_checker.py --token-only --username student2 --pin 1111
+uv run python health_checker.py --token-only --username student2 --pin 1111
 
 # If DEFAULT_USERNAME and DEFAULT_PIN are set in .env file:
-python health_checker.py                    # Quick test using .env credentials
-python health_checker.py -v --show-token   # Detailed test using .env credentials
+uv run python health_checker.py                    # Quick test using .env credentials
+uv run python health_checker.py -v --show-token   # Detailed test using .env credentials
 ```
 
 ## Integration
