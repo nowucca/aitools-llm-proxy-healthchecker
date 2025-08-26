@@ -2,9 +2,13 @@
 
 A standalone health check tool for testing all three providers (OpenAI, Anthropic, Opensource) with student authentication and token management capabilities.
 
+## Install Libraries
+
+* **Install Libraries**: Run `uv sync` to install necessary libraries (creates a .venv virtual environment for them).
+
 ## Setup using Your Own Credentials (Optional)
 
-1. **Configure API Keys if you want to use your own credentials**: Edit the `.env` file in this directory with your API keys:
+* **Configure API Keys if you want to use your own credentials**: Edit the `.env` file in this directory with your API keys:
    ```bash
    # OpenAI Configuration
    OPENAI_API_KEY=your_actual_openai_api_key
@@ -15,13 +19,15 @@ A standalone health check tool for testing all three providers (OpenAI, Anthropi
    ```
    (Note: You can skip this step if you are just using the class-provided opensource LLM.)
 
-2. **Install Libraries**: Run `uv sync` to install necessary libraries (creates a .venv virtual environment for them).
 
 
 ## Usage
 
 
 ### Basic Usage
+
+* Use your email without @vt.edu as your username.
+* Use the last 4 digits of your student id as your PIN.
 
 **Note**: Username and PIN are required either as command line arguments or set as `DEFAULT_USERNAME` and `DEFAULT_PIN` in the `.env` file.
 
